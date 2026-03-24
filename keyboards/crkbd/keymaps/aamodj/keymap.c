@@ -50,10 +50,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_ESC,    MT(MOD_LSFT, KC_A),    MT(MOD_LCTL, KC_S),    MT(MOD_LGUI, KC_D),    MT(MOD_LALT, KC_F),    KC_G,                         KC_H,    MT(MOD_RALT, KC_J),    MT(MOD_RGUI, KC_K),    MT(MOD_RCTL, KC_L), MT(MOD_RSFT, KC_SCLN), KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_LCTL,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_RALT,   MO(_NUMSYM),  KC_SPC,     KC_ENT,   MO(_FUNNAV), DEL_WRD
-                                      //`--------------------------'  `--------------------------'
+      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTL,
+  //|--------+--------+--------+--------+--------+--------------+--------|  |--------+--------------+---------+--------+--------+--------+--------|
+                                          KC_LALT,   MO(_NUMSYM),  KC_SPC,     KC_ENT,   MO(_FUNNAV), KC_RGUI
+                                      //`--------------------------------'  `---------------------------------'
   ),
 
 
@@ -70,25 +70,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
     [_FUNNAV] = LAYOUT_split_3x6_3(
-  // ,-------------------------------------------------------------------------------.                   ,----------------------------------------------------------------.
-        KC_F1,   KC_F2,   KC_F3,              KC_F4,             KC_F5,         KC_F6,                       KC_F7,        KC_F8,      KC_F9,   KC_F10,    KC_F11,  KC_F12,
-  //|--------+--------+--------+---------------~---+------------------+--------------|                   |----------+--------+-------------+-----------+---------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX,   KC_BRIGHTNESS_UP,   KC_AUDIO_VOL_UP, KC_AUDIO_MUTE,                     KC_LEFT,      KC_DOWN,      KC_UP, KC_RIGHT,   XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+-------------------+------------------+--------------|                   |----------+--------+-------------+-----------+---------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,       XXXXXXX,                     KC_HOME, KC_PAGE_DOWN, KC_PAGE_UP,   KC_END, KC_INSERT, XXXXXXX,
-  //|--------+--------+--------+-------------------+------------------+--------------+--------| |--------+----------+--------+-------------+-----------+---------+--------|
-                                          KC_LGUI,   MO(_CORNE_SETTINGS),  KC_SPC,     KC_ENT, _______, KC_RALT
-                                      //`--------------------------'  `--------------------------'
+  // ,------------------------------------------------------------------.                   ,----------------------------------------------------------------.
+        KC_F1,   KC_F2,   KC_F3,       KC_F4,        KC_F5,        KC_F6,                       KC_F7,        KC_F8,      KC_F9,   KC_F10,    KC_F11,  KC_F12,
+  //|--------+--------+--------+--------~---+-------------+-------------|                   |----------+--------+-------------+-----------+---------+--------|
+      XXXXXXX, XXXXXXX, MS_LEFT,     MS_DOWN,        MS_UP,      MS_RGHT,                     KC_LEFT,      KC_DOWN,      KC_UP, KC_RIGHT,   XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+------------+-------------+-------------|                   |----------+--------+-------------+-----------+---------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX,     MS_BTN3,      MS_BTN1,      MS_BTN2,                     KC_HOME, KC_PAGE_DOWN, KC_PAGE_UP,   KC_END, KC_INSERT, XXXXXXX,
+  //|--------+--------+--------+------------+-------------+-------------+--------| |--------+--------+-------------+-----------+---------+----------+--------|
+                                          KC_LGUI,   MO(_CORNE_SETTINGS),  KC_SPC,    KC_ENT, _______, KC_RALT
+                                      //`----------------------------------------' `--------------------------'
   ),
 
     [_CORNE_SETTINGS] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,---------------------------------------------------------------.
-      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,           AC_TOGG,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+------------------|
-      XXXXXXX, RM_TOGG, RM_HUEU, RM_SATU, RM_VALU, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     QK_BOOTLOADER,
-  //|-------+-------+--------+--------+--------+---------|                    |--------+--------+--------+--------+--------+------------------|
-      XXXXXXX, RM_NEXT, RM_HUED, RM_SATD, RM_VALD, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   QK_CLEAR_EEPROM,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+------------------|
+  //,-----------------------------------------------------.                    ,------------------------------------------------------------------------------------------.
+      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,            XXXXXXX,           XXXXXXX,       XXXXXXX, XXXXXXX,           AC_TOGG,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+-------------------+------------------+--------------+--------+------------------|
+      XXXXXXX, RM_TOGG, RM_HUEU, RM_SATU, RM_VALU, XXXXXXX,                      XXXXXXX,   KC_BRIGHTNESS_UP,   KC_AUDIO_VOL_UP, KC_AUDIO_MUTE, XXXXXXX,     QK_BOOTLOADER,
+  //|-------+-------+--------+--------+--------+---------|                    |--------+--------------------+------------------+--------------+--------+------------------|
+      XXXXXXX, RM_NEXT, RM_HUED, RM_SATD, RM_VALD, XXXXXXX,                      XXXXXXX, KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,       XXXXXXX, XXXXXXX,   QK_CLEAR_EEPROM,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+-------------------+------------------+--------------+--------+------------------|
                                           KC_LGUI, _______,  KC_SPC,     KC_ENT, _______, KC_RALT
                                       //`--------------------------'  `--------------------------'
   )
@@ -103,7 +103,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif
 
-
+/*
 // OLED display customization
 //
 //Setup some mask which can be or'd with bytes to turn off pixels
@@ -198,3 +198,4 @@ bool oled_task_user(void) {
 
     return false;
 }
+*/
